@@ -1,11 +1,7 @@
 <?php
 
-if(!isset($_GET['name']) && !empty($_GET['name'])){
-    header('Location: index.php');
-}
-else{
-    $imageName = $_GET['name'];
-    $idCard = "outputs/".$imageName.".jpg";
+if(isset($_GET['name']) && !empty($_GET['name'])){
+
 ?>
 
 <!doctype html>
@@ -14,7 +10,7 @@ else{
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="Mahmudul Hasan Sumnon" content="">
+    <meta name="Mahmudul Hasan Sumon" content="">
 
     <title>Generated ID Card</title>
 
@@ -36,9 +32,9 @@ else{
 
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <img src="<?= $idCard?>" alt="" class="box-shadow rounded mx-auto d-block img-thumbnail">
+            <img src="<?php echo "outputs/".$_GET['name'].".jpg";?>" alt="" class="box-shadow rounded mx-auto d-block img-thumbnail">
             <div class="py-2" role="">
-                <a href="<?= $idCard?>" download><button type="button" class="btn btn-primary btn-block">Download</button></a>
+                <a href="<?php echo "outputs/".$_GET['name'].".jpg";?>" download><button type="button" class="btn btn-primary btn-block">Download</button></a>
                 <a href="index.php"><button type="button" class="mt-2 btn btn-dark btn-block">Go Back</button></a>
             </div>
         </div>
@@ -89,4 +85,10 @@ else{
   </body>
 </html>
 
-<?php }?>
+<?php
+
+}
+else
+  header('Location: index.php');
+
+?>
