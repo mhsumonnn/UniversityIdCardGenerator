@@ -21,8 +21,8 @@ if(isset($_POST['submit'])){
     $fontSize = 24;
     $rotation = 0;
 
-    $semiBold = "fonts/OpenSans-Semibold.ttf";
-    $bold = "fonts/OpenSans-Bold.ttf";
+    $semiBold = dirname(__FILE__)."/fonts/OpenSans-Semibold.ttf";
+    $bold = dirname(__FILE__)."/fonts/OpenSans-Bold.ttf";
 
     imagettftext($image, $fontSize, $rotation, 220, 302, $white, $bold, $hallName);
     imagettftext($image, 26, $rotation, 34, 740, $black, $bold, $name);
